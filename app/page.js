@@ -4,6 +4,7 @@ import Menu from './menu/page';
 import OrderUpdates from '../components/OrderUpdates';
 import { useState,useEffect } from 'react';
 import jwt from 'jsonwebtoken'
+import Navbar from '../components/Navbar';
 
 export default function Home() {
 
@@ -18,6 +19,7 @@ export default function Home() {
   },[localStorage.getItem('token')]);
   
   return (
+    <>
       <div className={isAdmin && "grid grid-cols-12"}>
         <div className=" col-span-8 overflow-y-scroll h-screen">
           <Menu />
@@ -27,5 +29,6 @@ export default function Home() {
         <OrderUpdates /> 
         </div>}
       </div>
+    </>
   );
 }
