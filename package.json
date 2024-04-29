@@ -1,0 +1,42 @@
+{
+  "name": "restaurant-pos-system",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node server.js",
+    "build": "next build",
+    "start": "NODE_ENV=production node server.js"
+  },
+  "dependencies": {
+    "@cloudinary/react": "^1.13.0",
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.5",
+    "@mui/material": "^5.15.15",
+    "@mui/styled-engine-sc": "^6.0.0-alpha.18",
+    "@react-pdf/renderer": "^3.4.4",
+    "bcrypt": "^5.1.1",
+    "cloudinary": "^2.2.0",
+    "express": "^4.19.2",
+    "http": "^0.0.1-security",
+    "lucide-react": "^0.376.0",
+    "mongoose": "^8.3.2",
+    "next": "14.2.3",
+    "next-cloudinary": "^6.5.1",
+    "react": "^18",
+    "react-dom": "^18",
+    "react-pdf": "^7.7.1",
+    "react-to-print": "^2.15.1",
+    "react-toastify": "^10.0.5",
+    "socket.io": "^4.7.5",
+    "socket.io-client": "^4.7.5",
+    "styled-components": "^6.1.8"
+  },
+  "devDependencies": {
+    "@types/node": "20.12.7",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.3",
+    "postcss": "^8",
+    "tailwindcss": "^3.4.1"
+  }
+}
