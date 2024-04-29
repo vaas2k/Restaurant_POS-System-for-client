@@ -1,9 +1,44 @@
 'use client'
-import React from 'react';
+import React, { useEffect,useState } from 'react';
 import Link from 'next/link'
-import { Home,SquareMenu } from 'lucide-react';
+import jwt from 'jsonwebtoken'
 
 const Navbar = () => {
+
+  const [ user , setUser ] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false);
+
+  useEffect(()=>{
+    const token = localStorage.getItem('token');
+    if(token){
+      const decodedToken = jwt.decode(token);
+      setIsAdmin(decodedToken.role === 'admin');
+      setUser(true);
+    }
+  },[localStorage.getItem('token')]);
+
+
+  const authRender = () => {
+
+    if(user){
+      return(<Link href="/sign-out" className="hover:text-gray-400">
+            SignOut
+      </Link>)
+    }
+    else{
+      return(
+        <>
+        <Link href="/sign-in" className="hover:text-gray-400">
+            SignIn
+          </Link>
+          <Link href="/sign-up" className="hover:text-gray-400">
+            SignUp
+        </Link>
+        </>
+      )
+    }
+  }
+
   return (
     <nav className="bg-gray-800 text-white px-4 py-2 flex justify-between items-center">
       <Link href="/" className="text-xl font-bold">Kazim K-POP</Link>
@@ -18,16 +53,21 @@ const Navbar = () => {
             Menu
           </Link>
         </li>
-        <li>
+
+        {isAdmin && <li>
           <Link href="/order-history" className="hover:text-gray-400">
             Orders 
           </Link>
-        </li>
-        <li>
+        </li>}
+        
+        {isAdmin && <li>
           <Link href="/add-items" className="hover:text-gray-400">
             Add Items
           </Link>
-        </li>
+        </li>}
+
+        {authRender()}
+
       </ul>
     </nav>
   );

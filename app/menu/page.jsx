@@ -2,6 +2,8 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { Box, Grid, Card, CardContent, Typography, Button, CardMedia, Select, MenuItem } from '@mui/material';
 import { CartContext } from '../../context/CartContext';
+import jwt from 'jsonwebtoken'
+
 
 const Menu = () => {
   const [menuItems, setMenuItems] = useState([]);
@@ -109,6 +111,8 @@ const Menu = () => {
                     </Typography>
                   </Grid>
                 </Grid>
+                
+                {isAdmin && 
                 <Box display="flex" justifyContent="space-between" mt={2}>
                   <Button
                     variant="contained"
@@ -116,21 +120,11 @@ const Menu = () => {
                     fullWidth
                     sx={{ borderRadius: '5px' }}
                     onClick={() => handleAddToCart(item)}
-                  >
+                    >
                     Add to Cart
                   </Button>
-                  {isAdmin && (
-                    <Box display="flex" alignItems="center">
-                      <Button variant="outlined" color="secondary" sx={{ mr: 1 }}>
-                        -
-                      </Button>
-                      <Typography variant="body1">{0}</Typography>
-                      <Button variant="outlined" color="secondary" sx={{ ml: 1 }}>
-                        +
-                      </Button>
-                    </Box>
-                  )}
                 </Box>
+                }
               </CardContent>
             </Card>
           </Grid>
