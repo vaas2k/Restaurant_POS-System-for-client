@@ -3,7 +3,7 @@ import User from '../../../models/User';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 
-const JWT_SECRET = process.env.JWT_SECRET || 'your-secret-key';
+const JWT_SECRET = process.env.JWT_SECRET || 'xxnm21nsa8x01lma232accs2q1x002';
 
 export async function POST(request) {
   await dbConnect();
