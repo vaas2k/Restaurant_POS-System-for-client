@@ -4,7 +4,6 @@ import Menu from './menu/page';
 import OrderUpdates from '../components/OrderUpdates';
 import { useState,useEffect } from 'react';
 import jwt from 'jsonwebtoken'
-import Navbar from '../components/Navbar';
 
 export default function Home() {
 
