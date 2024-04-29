@@ -1,6 +1,6 @@
 import authMiddleware from '../../../middleware/auth';
 
-export default async function handler(req, res) {
+export default async function POST(req, res) {
   await authMiddleware(req, res, async () => {
     // This code will only run if the user is authenticated
     if (req.user.role === 'admin') {
