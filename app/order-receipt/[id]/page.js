@@ -1,9 +1,8 @@
 'use client'
-import React, { useContext, useRef } from 'react';
+import React, { useRef } from 'react';
 import { useReactToPrint } from 'react-to-print';
 
 const OrderReceipt = ({ params }) => {
-  console.log(params.orderData);
   const componentRef = useRef({});
 
   const handlePrint = useReactToPrint({
@@ -25,7 +24,7 @@ const OrderReceipt = ({ params }) => {
   );
 };
 
-const PrintContent = React.forwardRef(({ cartItems }, ref) => {
+const PrintContent = React.forwardRef(function PrintContent({ cartItems }, ref) {
   let total = 0;
 
   return (
@@ -63,5 +62,7 @@ const PrintContent = React.forwardRef(({ cartItems }, ref) => {
     </div>
   );
 });
+
+PrintContent.displayName = 'PrintContent'; // Add display name to the PrintContent component
 
 export default OrderReceipt;
