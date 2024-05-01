@@ -11,4 +11,8 @@ async function handler(req, res) {
   });
 }
 
+<<<<<<< HEAD
 export { handler as GET, handler as POST}
+=======
+export { handler as GET, handler as POST}
+>>>>>>> 6eb6e28a4e93876b6ac1cd70510bde0114617d43
