@@ -8,6 +8,7 @@ const SignOut = () => {
   const handleSignOut = () => {
     typeof window !== undefined ? localStorage.removeItem('token') : null;
     router.push('/sign-in');
+    setTimeout(()=>{typeof window !== undefined ? window.location.reload() : null ;},1000)
   };
 
   return (

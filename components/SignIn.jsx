@@ -1,7 +1,7 @@
 'use client'
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { Box, Typography, TextField, Button, Container, Grid } from '@mui/material';
+import { Box, Typography, TextField, Button, Container, Grid, getBottomNavigationUtilityClass } from '@mui/material';
 import { styled } from '@mui/system';
 
 const SignInContainer = styled(Container)(({ theme }) => ({
@@ -41,6 +41,7 @@ const SignIn = () => {
       const { token } = await response.json();
       typeof window !== undefined ? localStorage.setItem('token', token) : null;
       router.push('/');
+      setTimeout(()=>{typeof window !== undefined ? window.location.reload() : null ;},1000)
     } catch (err) {
       setError(err.message);
     }
