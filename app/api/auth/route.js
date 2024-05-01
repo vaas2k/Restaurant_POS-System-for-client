@@ -26,7 +26,7 @@ export async function POST(request) {
     expiresIn: '1h',
   });
 
-  return new Response(JSON.stringify({ token }), {
+  return new Response(JSON.stringify({ token , name : user.name }), {
     status: 200,
     headers: {
       'Content-Type': 'application/json',

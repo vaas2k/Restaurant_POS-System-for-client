@@ -38,10 +38,11 @@ const SignIn = () => {
       if (!response.ok) {
         throw new Error('Invalid credentials');
       }
-      const { token } = await response.json();
+      const { token,name } = await response.json();
       typeof window !== undefined ? localStorage.setItem('token', token) : null;
+      typeof window !== undefined ? localStorage.setItem('user_name', name) : null;
       router.push('/');
-      setTimeout(()=>{typeof window !== undefined ? window.location.reload() : null ;},1000)
+      setTimeout(()=>{typeof window !== undefined ? window.location.reload() : null ;},2000)
     } catch (err) {
       setError(err.message);
     }
