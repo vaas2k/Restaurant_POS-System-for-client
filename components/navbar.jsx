@@ -52,7 +52,7 @@ const Navbar = () => {
     <nav className="bg-gray-800 text-white px-4 py-2 flex justify-between items-center">
       <Link href="/" className="text-xl font-bold">Kazim K-POP</Link>
 
-      <Button> Logged in &nbsp;<b style={{color:'whitesmoke'}}> {user} </b></Button>
+      {user && <Button> Logged in &nbsp;<b style={{color:'whitesmoke'}}> {user} </b></Button>}
 
       <ul className="flex space-x-4">
         <li>
