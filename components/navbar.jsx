@@ -15,7 +15,7 @@ const Navbar = () => {
       setIsAdmin(decodedToken.role === 'admin');
       setUser(true);
     }
-  },[localStorage.getItem('token')]);
+  },[token]);
 
 
   const authRender = () => {

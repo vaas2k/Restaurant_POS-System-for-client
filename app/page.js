@@ -16,7 +16,7 @@ export default function Home() {
       const decodedToken = jwt.decode(token);
       setIsAdmin(decodedToken.role === 'admin');
     }
-  },[localStorage.getItem('token')]);
+  },[token]);
   
   return (
     <>

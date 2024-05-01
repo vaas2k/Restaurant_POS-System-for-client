@@ -39,7 +39,7 @@ const SignIn = () => {
         throw new Error('Invalid credentials');
       }
       const { token } = await response.json();
-      localStorage.setItem('token', token);
+      typeof window !== undefined ? localStorage.setItem('token', token) : null;
       router.push('/');
     } catch (err) {
       setError(err.message);

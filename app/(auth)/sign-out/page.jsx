@@ -6,7 +6,7 @@ const SignOut = () => {
   const router = useRouter();
 
   const handleSignOut = () => {
-    localStorage.removeItem('token');
+    typeof window !== undefined ? localStorage.removeItem('token') : null;
     router.push('/sign-in');
   };
 
