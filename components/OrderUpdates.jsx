@@ -6,12 +6,13 @@ const socket = socketIO();
 
 const OrderUpdates = () => {
   // Use localStorage for state persistence
-  const initialOrders = JSON.parse(localStorage.getItem('orders')) || [];
+  const getOrders = typeof window !== undefined ? localStorage.getItem('orders') : [];
+  const initialOrders = JSON.parse(getOrders) || [];
   const [orders, setOrders] = useState(initialOrders);
 
   useEffect(() => {
     // Update localStorage whenever orders state changes
-    localStorage.setItem('orders', JSON.stringify(orders));
+    typeof window !== undefined  ? localStorage.setItem('orders', JSON.stringify(orders)) : null;
 
     socket.on('orderUpdate', (order) => {
       setOrders((prevOrders) => [...prevOrders, order]);

@@ -9,7 +9,7 @@ const Navbar = () => {
   const [isAdmin, setIsAdmin] = useState(false);
 
   useEffect(()=>{
-    const token = localStorage.getItem('token');
+    const token = typeof window !== "undefined" ? window.localStorage.getItem('token') : false;
     if(token){
       const decodedToken = jwt.decode(token);
       setIsAdmin(decodedToken.role === 'admin');

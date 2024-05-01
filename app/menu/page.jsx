@@ -27,7 +27,7 @@ const Menu = () => {
     fetchMenuItems();
 
     // Check user role
-    const token = localStorage.getItem('token');
+    const token = typeof window !== "undefined" ? window.localStorage.getItem('token') : false;
     if (token) {
       const decodedToken = jwt.decode(token);
       setIsAdmin(decodedToken.role === 'admin');

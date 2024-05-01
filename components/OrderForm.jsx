@@ -55,7 +55,7 @@ const OrderForm = () => {
         const dataToSend = orderData;
         const dataString = encodeURIComponent(JSON.stringify(dataToSend));
         socket.emit('newOrder', orderData); // Emit the newOrder event
-        window.open(`/order-receipt/${dataString}`, '_blank');
+        typeof window !== undefined ? window.open(`/order-receipt/${dataString}`, '_blank') : null;
       } else {
         console.error('Error submitting order:', response.status);
       }
